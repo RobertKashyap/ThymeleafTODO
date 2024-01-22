@@ -10,15 +10,14 @@ import com.spbt.traditonaltodoapp.services.TodoItemService;
 @Controller
 public class HomeController {
 
-        @Autowired
-        private TodoItemService todoItemService;
-        
+    @Autowired
+    private TodoItemService todoItemService;
 
-        @GetMapping("/")
-        public ModelAndView index(){
-            //UI object of spring MVC
-            ModelAndView modelAndView = new ModelAndView();
-            modelAndView.addObject("todoItems", todoItemService.getAll());
-            return modelAndView;// look for templates index.html
-        }
+    @GetMapping("/")
+    public ModelAndView index() {
+        // UI object of spring MVC
+        ModelAndView modelAndView = new ModelAndView("index");
+        modelAndView.addObject("todoItems", todoItemService.getAll());
+        return modelAndView;// look for templates index.html
+    }
 }
