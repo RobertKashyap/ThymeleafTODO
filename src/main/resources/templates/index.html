@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.2/css/bootstrap.min.css}" />
 </head>
 <body>
-    <div>
+    <div class="container">
         <h1>Generic Todo Application</h1>
         <hr />
-        <table>
+        <table class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>Actions</th>
@@ -22,7 +23,14 @@
             </thead>
             <tbody>
                 <tr th:each="item : ${todoItems}">
-                    <td>&nbsp;</td>
+                    <td>
+                        <div class="btn btn-group-sm" role="group">
+                            <a class="btn btn-info" th:href="@{/edit/{id}(id=${item.id})}">
+                                <i class="bi bi-pencil-fill"></i> Edit</a>
+                            <a class="btn btn-danger" th:href="@{/delete/{id}(id=${item.id})}">
+                                <i class="bi bi-trash-fill"></i> Delete</a>
+                        </div>
+                    </td>
                     <td th:text="${item.id}"></td>
                     <td th:text="${item.description}"></td>
                     <td>
@@ -34,6 +42,13 @@
                 </tr>
             </tbody>
         </table>
-    </div>    
+        <p>
+            <a class="btn btn-outline-success" href="/create-todo">
+                <i class="bi bi-plus-square-fill"></i> Create a Todo
+            </a>
+        </p>
+
+    </div>
+    <script th:src="@{/webjars/bootstrap/5.3.2/js/bootstrap.min.js}"></script>
 </body>
 </html>
