@@ -2,7 +2,7 @@
 
 This is a simple todo application built using Java and Spring Boot. The application allows users to create, edit, and delete todo items. It uses Thymeleaf for templating and H2 database for data storage.
 
-## Project Structure
+## Project Structure ( Visit "./site/index.html" to view MAVEN generated documentation )
 
 The project is structured as follows:
 
